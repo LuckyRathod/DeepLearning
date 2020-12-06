@@ -12,3 +12,14 @@ Out of 2000 observations
 - 1686 ->Correct Predictions
 - 314 ->Incorrect Predictions
 <img src="Artificial Neural Network - ANN/Results/ann.PNG" height="300" width="630"/>
+
+### CNN. 
+
+### RNN.
+
+### SOM.
+
+### AutoEncoders.
+
+### Biltzmann Machine
+
