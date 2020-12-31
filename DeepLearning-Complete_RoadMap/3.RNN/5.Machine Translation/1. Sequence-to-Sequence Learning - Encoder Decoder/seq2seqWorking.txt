@@ -1,0 +1,53 @@
+Sequence to Sequence Leanring - Encoder and Decoder
+
+We will implement character-level sequence-to-sequence model, processing the input character-by-character and generating the output character-by-character.
+
+1. Sentences will be converted into 3 numpy arrays
+	- Encoder input data
+	- Decoder input data
+	- Decoder output data
+
+Encoder input data - 3D array of shape -- (num_pairs, max_english_sentence_length, num_english_characters) containing One hot vectorization of Eng sent
+Decoder input data - 3D array of shape -- (num_pairs, max_french_sentence_length, num_french_characters) containing One hot vectorization of French sent
+Decoder_target_data is the same as decoder_input_data but offset by one timestep. decoder_target_data[:, t, :] will be the same as decoder_input_data[:, t + 1, :].
+
+2. Train a basic LSTM-based Seq2Seq model to predict decoder_target_data given encoder_input_data and decoder_input_data.
+
+3. Decode some sentences to check that the model is working (i.e. turn samples from encoder_input_data into corresponding samples from decoder_target_data).
+
+In  code
+
+input_characters == Total no of unique characters
+target_characters == Total no of target characters
+
+num_encoder_tokens == Length of input characters ------- # num_english_characters
+num_decoder_tokens == Length of target characters ------- # num_french_characters
+
+max_encoder_Seq_length == Max Length of sentences from all sentences in dataset --- max_english_sentence_length
+max_decoder_Seq_length == Max Length of sentences from all sentences in dataset --- max_french_sentence_length
+
+#### Now for each character we need to assign token --- One hot vectorization
+
+input_token_index -- Each character is assigned a Integer 
+target_token_index -- Each character is assigned a Integer
+
+
+### Create a 3D Array 
+
+encoder_input_data is a 3D array of shape (num_pairs - Total no of Sentences ) , max_english_sentence_length, num_english_characters) containing a one-hot vectorization of the English sentences.
+
+decoder_input_data is a 3D array of shape (num_pairs, max_french_sentence_length, num_french_characters) containg a one-hot vectorization of the French sentences.
+
+decoder_target_data is the same as decoder_input_data but offset by one timestep. decoder_target_data[:, t, :] will be the same as decoder_input_data[:, t + 1, :].
+
+
+##### Function which will create a One hot vectorization for above three arrays
+
+#### Training is done
+
+Try it on Testing Data¶
+To decode a test sentence, we will repeatedly:
+
+Encode the input sentence and retrieve the initial decoder state
+Run one step of the decoder with this initial state and a "start of sequence" token as target. The output will be the next target character.
+Append the target character predicted and repeat.
