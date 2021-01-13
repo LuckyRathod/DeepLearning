@@ -1,0 +1,54 @@
+
+***************************************** QUICK REVIEW OF NEURAL NETWORK **********************************************
+
+I have explained all the below concepts in details in my notebook , Which can be found in Deep Learning Repository
+
+Please use these link to have an access - https://github.com/LuckyRathod/DeepLearning/blob/main/DeepLearning-Complete_RoadMap/DeepLearning_Intuition_0_ANN.ipynb
+
+1. Neural Network Concepts
+	- How does neural network 
+	- Neurons
+	- How to Train Neural Network [Forward and Back Propogation]
+	- How to Train MultiLayer Neural Network
+	- Chain Rule Differentiation with BackPropogation
+	- Vanishing Gradient Descent Problem
+	- Exploding Gradient Descent Problem
+	- Regularization - Drop out layers in Multilayer Neural Network
+
+2. Activation Functions
+	- Why Activation Functions are used 
+	- 9 Activation Functions
+		1.Sigmoid
+		2.Threshold Activation Function - TANH
+		3.RELU - Rectifier Linear Unit
+		4.LEAKY RELU
+		5.ELU (Exponential Linear Unit)
+		6.PRELU
+		7.SWISH
+		8.Softplus
+		9.Softmax
+
+3. Weight Initialization Techniques
+	-Uniform Distribution ------- It works really well with Sigmoid Activation Function
+	-Xavier/Gorat Distribution --- It works really well with Sigmoid Activation Function
+		1. Xavier/Gorat Normal Distribution
+		2. Xavier/Gorat Uniform Distribution
+	-HE init ---------------------- It works really well with RELU Activation function
+		1.HE Normal 
+		2.HE Uniform
+
+4. Difference between Epochs and Iterations
+5. Global Mimnimum and Local Minimum[It depicts we have reached Convergence Level]
+6. Convex Function and Non Convex Functions
+7. Deep Learning Optimizers
+	- Gradient Descent Optimizer
+	- Stochastic Gradient Descent
+	- Mini Batch Stochastic Gradient Descent
+	- Mini Batch Stochastic Gradient Descent with Momentum- Exponential Moving Average (To reduce Noise)
+	- AdaGrad Optimizer - [Learning Rate parameter changes in every neuron,epoch,iteration]
+		** Why do we require different Learning Rate Parameters ? -- Dense And Sparse Features
+		** Alpha t is used 
+	- AdaDelta Optimizer and RMS Prop
+		** Weighted Average is used - Does not inlcude Summation of all time intervals 
+	- Adam Optimizer 
+		** Combination of Momentum and RMS Prop 
