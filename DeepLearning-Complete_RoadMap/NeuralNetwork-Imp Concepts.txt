@@ -4,6 +4,7 @@
 I have explained all the below concepts in details in my notebook , Which can be found in Deep Learning Repository
 
 Please use these link to have an access - https://github.com/LuckyRathod/DeepLearning/blob/main/DeepLearning-Complete_RoadMap/DeepLearning_Intuition_0_ANN.ipynb
+Or You can also download html version of above notebook : https://github.com/LuckyRathod/DeepLearning/blob/main/DeepLearning-Complete_RoadMap/DeepLearning_Intuition_0_ANN.html
 
 1. Neural Network Concepts
 	- How does neural network 
