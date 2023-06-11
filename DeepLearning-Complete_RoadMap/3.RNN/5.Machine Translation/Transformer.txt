@@ -1,0 +1,99 @@
+Transformer Architecture
+
+1. Transfore is used to converts words/sent from one language to another.It contains encoder and decoder
+
+##### ENCODER 
+
+2. Encoder and Decoder Components contains layers of Encoder
+	There are 6 Encoders and 6 Decoders ---- You can change number , But 6 gives good results.
+	Output of Final Encoder is given as input to every Decoder
+3. Ever Encoder Contains 2 Things :
+	1. Self Attention
+	2. Feed Forward Neural Network (ANN)
+
+*** I/p of encoder is Text -- So they are converted into vectors using Word Embeddings Techinques
+*** For Example - Each word of sentence is converted to vector of 512 using Word2Vect
+
+*** Before Giving Word Vector to Encoder , There is one more concept -- Positional Encoding
+*** Positional Encoding will tell which words are near , Because ordering of words is also imp
+*** Je sui Etudiant ---- When you find distance between positional vector of je and suis , It will be less as compared to vector of je and etudiant
+
+4. These vectors of each words(512) is passed as an input to the Encoder
+
+*** The word at each position is passed through Self Attention and then Feed Forward Neural Network
+*** Self Attention model will give value w.r.t each word with every other words
+*** Suppose we want to translate following sentence
+*** "The animal didnt cross the street because it was too tired"
+*** Now what does "it" referes to in above sentence --- It is simple question to human , But Computer cannot understand these
+*** So Self Attention model will give value w.r.t it for every word . And will find out what does "it" referes to which has high value
+
+5. Self Attention in Detail
+
+#### STEP 1
+
+Three weights are used which are randomly initialized 
+1. Each Word Vector will be Multiplied with WQ to get q1,q2 -- Queries --- 64Dimensions
+2. Each Word Vector will be Multiplied with WK to get k1,k2 -- Keys
+3. Each Word Vector will be Multiplied with Wv to get v1,v2 -- Vaues
+
+#### STEP 2
+Calculate Score -- Multiplying Query of that Word with keys of all other words
+For Each word we will calculate score --- Multiplying q1,k1
+And For same word we will also multiply q1 with k2
+
+#### Step 3 
+Divide Scores by 8 -- We know Dimension of query is 64 -- If we do root of 64 - 8
+
+#### Step 4 
+Apply Softmax Function
+
+#### Step 5 
+Multiply Softmax value with Valus Vector
+
+#### Step 6 
+z1 is calculate by adding v1 and v2
+Z1 and z2 are outputs of Self Attention
+
+*** Single Head Attention
+*** Since We are using one WQ,WK,WV for all words we can call it as Single Head Attention
+*** When we use Single Head Attention there is one problem
+*** Now when we see our Sentence , along with "it" as it refers to animal, we are not having the importance of other words for word "it" . Some imp should also be given to "tired" word
+*** Because Single Weights is used for all words
+
+*** So to overcome problem of Single Head Attention , we will use Multi Head Attention
+*** Each word will have its own Weight vector , not like single head attention where all words have same weigths matrix of q,k,v
+*** These will also help us to find importance of other words
+
+6. Since we are using Multi Head Attention , So if there are 8 head we will get 8 z values instead of 1 z value for each word input
+   To overcome these problem we will combine all z values with new W0(Weight Matrix) before passing it to feed forward neural network
+
+7. We will do Normalization before passing our z and weight value to Feed forward neural network.
+   Normalization can also be considered as Dropout , because if sometime self attention is not performin well , we can skip that and do normalization
+
+8. Once Feed Foward neural network process is completed , Final normalization is applied and Output is passed to each and every Decoder 
+
+
+##### DECODER 
+
+*** Every Decoder contains Self Attention, Encoder-Decoder Attention,Feed Forward Neural network
+
+9. We have one extra module - Encoder - Decoder Attention
+   This is similar to self attention model
+   Encoder output is passed to theseww
+
+10. Decoder is also given some input from below
+    Output of Decoder will be passed as input again
+
+http://jalammar.github.io/illustrated-transformer/
+
+
+
+
+
+
+
+
+
+
+
+

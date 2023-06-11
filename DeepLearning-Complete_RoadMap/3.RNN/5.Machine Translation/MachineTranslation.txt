@@ -1,0 +1,23 @@
+Machine Translation
+
+1. Sequence - Sequence Learning -- Encoder and Decoder -- Using LSTM 
+   When there are long sentences -- Sequence to Sequence learning cannot translate sentences
+   English to French Translation -- Practical
+
+Problems with Encoder and Decoder
+
+If sentence length is small then Encoder and Decoder is able to translate . 
+But when sentence length is very big its accuracy is not good.
+If Sentence has 100 words , Encoder and Decoder is not able to translate the sentence into French
+
+We dont consider output in encoder and last output is then given to decoder . So when sentences are very long , 
+Vector generated in Encoder is not able to capture all the information about all words
+
+2. Self Attention Models 
+
+In order to overcome above Problems ATTENTION MODELS are used
+
+In attention models -- Bidirectional LSTMS are used
+
+Initially we will take window size words in sentence ---Will pass these to decoder and it will output . 
+Again next window size words are passed to decoder to get output and so on .

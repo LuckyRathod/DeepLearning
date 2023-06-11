@@ -1,0 +1,27 @@
+Self Attention models
+
+If sentence length is small then Encoder and Decoder is able to translate . But when sentence length is very big its accuracy is not good
+As we know to overcome problems of Encoder and Decoder - Attention Models are used which uses Bidirectional LSTM .
+
+Similarly in Attention models , When there are longer sentences , we will also know the future words of sentences when we are in first word.So in these way we are getting context of future information
+
+#### Decoder --- In Decoder we will use LSTM RNN
+
+#### Encoder --- In Encoder we will use Bidirectional LSTM RNN
+
+We know that output of both the direction of LSTM RNN in Encoder is combines to give it to activation to get final output
+
+Attention Model consider some window of words to translate
+window is denoted by tx -- These can be assumed as hyperparameter while training
+
+Context Vector --- Output of Encoder is given as input to Decoder.
+
+So as per our window size --- That many no of outputs are combined to give you final output of Encoder - cl
+
+Example :
+
+When we give input as x1 -- we get output as y1 in Decoder
+
+But y1 -- input is c1 (h1+h2+h3) - Alpha weights will also be initialized -- i-e We also have information of future words
+
+So in these we are giving attention to some of the words based on window size
